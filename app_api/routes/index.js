@@ -6,18 +6,13 @@ const tripsController = require('../controllers/trips');
 
 router
     .route('/trips')
-    .get(tripsController.tripsList);
+    .get(tripsController.tripsList)
+    .post(tripsController.tripsAddTrip);
+
 
 router
     .route('/trips/:tripCode')
-    .get(tripsController.tripsFindByCode);
-
-// router
-//     .route('/rooms')
-//     .get(roomsController.roomsList);
-
-// router
-//     .route('/rooms/:tripCode')
-//     .get(roomsController.roomsFindByCode);
+    .get(tripsController.tripsFindByCode)
+    .put(tripsController.tripsUpdateTrip);
 
 module.exports = router;
