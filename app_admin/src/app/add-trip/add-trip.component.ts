@@ -9,18 +9,17 @@ import { TripDataService } from '../services/trip-data.service';
   styleUrls: ['./add-trip.component.css']
 })
 export class AddTripComponent implements OnInit {
-
   addForm: FormGroup;
   submitted = false;
 
-  constructor (
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private tripService: TripDataService
+  constructor(
+  private formBuilder: FormBuilder,
+  private router: Router,
+  private tripService: TripDataService
   ) { }
 
   ngOnInit() {
-    this.addForm = this.formBuilder.group ({
+    this.addForm = this.formBuilder.group({
       _id: [],
       code: ['', Validators.required],
       name: ['', Validators.required],
@@ -29,20 +28,21 @@ export class AddTripComponent implements OnInit {
       resort: ['', Validators.required],
       perPerson: ['', Validators.required],
       image: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
     })
   }
 
   onSubmit() {
     this.submitted = true;
-    if(this.addForm.valid) {
-      this.tripService.addTrip(this.addForm.value) 
-        .then( data => {
-          console.log(data);
-          this.router.navigate(['']);
-        });
-    }
-  } 
+    if(this.addForm.valid){
+    this.tripService.addTrip(this.addForm.value)
+    .then( data => {
+      console.log(data);
+      this.router.navigate(['']);
+    });
+  }
+}
+
 // get the form short name to access the form fields
-  get f() { return this.addForm.controls; }
+get f() { return this.addForm.controls; }
 }

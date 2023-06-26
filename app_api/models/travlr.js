@@ -12,4 +12,7 @@ const tripSchema = new mongoose.Schema({
     description: { type: String, required: true }
 });
 
+// define rooms schema
+
+// compile model
 mongoose.model('trips', tripSchema);

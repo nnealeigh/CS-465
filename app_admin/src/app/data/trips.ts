@@ -1,4 +1,4 @@
-export const trips =
+export const trips = 
 [
     {
         "code": "GALR210214",
